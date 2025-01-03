@@ -1,6 +1,6 @@
-name: "gaussiandreamer-sd"
-tag: "${rmspace:${system.prompt_processor.prompt},_}"
-exp_root_dir: "outputs"
+name: "msnd"
+tag: ""
+exp_root_dir: "."
 seed: 0
  
 data_type: "random-camera-datamodule"
@@ -25,7 +25,7 @@ system:
   prompt_processor:
     pretrained_model_name_or_path: "stabilityai/stable-diffusion-2-1-base"
     prompt: ???
-    negative_prompt: "ugly, bad anatomy, blurry, pixelated obscure, unnatural colors, poor lighting, dull, and unclear, cropped, lowres, low quality, artifacts, duplicate, morbid, mutilated, poorly drawn face, deformed, dehydrated, bad proportions, unfocused"
+    negative_prompt: "background, ground, ugly, bad anatomy, blurry, pixelated obscure, unnatural colors, poor lighting, dull, and unclear, cropped, lowres, low quality, artifacts, duplicate, morbid, mutilated, poorly drawn face, deformed, dehydrated, bad proportions, unfocused"
 
   guidance_type: "stable-diffusion-guidance"
   guidance:

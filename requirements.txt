@@ -1,4 +1,4 @@
-torch==2.0.1
+# torch==2.0.1
 lightning==2.0.0
 omegaconf==2.3.0
 jaxtyping
@@ -30,7 +30,7 @@ xformers==0.0.20
 bitsandbytes==0.38.1
 sentencepiece
 safetensors
-huggingface_hub
+huggingface_hub==0.11.1
 
 # for zero123
 einops

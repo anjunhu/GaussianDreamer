@@ -49,7 +49,7 @@ class ExperimentConfig:
     description: str = ""
     tag: str = ""
     seed: int = 0
-    use_timestamp: bool = True
+    use_timestamp: bool = False
     timestamp: Optional[str] = None
     exp_root_dir: str = "outputs"
 
@@ -78,7 +78,7 @@ class ExperimentConfig:
 
     def __post_init__(self):
         if not self.tag and not self.use_timestamp:
-            raise ValueError("Either tag is specified or use_timestamp is True.")
+            threestudio.warn("Either tag is specified or use_timestamp is True.")
         self.trial_name = self.tag
         # if resume from an existing config, self.timestamp should not be None
         if self.timestamp is None:

@@ -115,7 +115,7 @@ class GaussianDreamer(BaseLift3DSystem):
         batch_size = 1
         guidance_scale = 15.0
         prompt = str(self.cfg.prompt_processor.prompt)
-        print('prompt',prompt)
+        print('GaussianDreamer.shape prompt',prompt)
 
         latents = sample_latents(
             batch_size=batch_size,
@@ -506,13 +506,15 @@ class GaussianDreamer(BaseLift3DSystem):
             step=self.true_global_step,
         )
         save_path = self.get_save_path(f"last_3dgs.ply")
+        print("Saving last_3dgs.ply to", save_path)
         self.gaussian.save_ply(save_path)
         # self.pointefig.savefig(self.get_save_path("pointe.png"))
         if self.load_type==0:
+            print("Saving shape.ply to", self.get_save_path("shape.ply"))
             o3d.io.write_point_cloud(self.get_save_path("shape.ply"), self.point_cloud)
             self.save_gif_to_file(self.shapeimages, self.get_save_path("shape.gif"))
         load_ply(save_path,self.get_save_path(f"it{self.true_global_step}-test-color.ply"))
-        
+        # self.global_step = 0
 
 
     def configure_optimizers(self):

@@ -13,7 +13,7 @@ import torch
 import numpy as np
 from gaussiansplatting.utils.general_utils import inverse_sigmoid, get_expon_lr_func, build_rotation
 from torch import nn
-import os
+import os, sys
 from gaussiansplatting.utils.system_utils import mkdir_p
 from plyfile import PlyData, PlyElement
 from gaussiansplatting.utils.sh_utils import RGB2SH
@@ -208,6 +208,8 @@ class GaussianModel:
         opacities = self._opacity.detach().cpu().numpy()
         scale = self._scaling.detach().cpu().numpy()
         rotation = self._rotation.detach().cpu().numpy()
+        print(xyz.shape, normals.shape, f_dc.shape, f_rest.shape, opacities.shape, scale.shape, rotation.shape)
+        print("self.max_sh_degree", self.max_sh_degree)
 
         dtype_full = [(attribute, 'f4') for attribute in self.construct_list_of_attributes()]
 
